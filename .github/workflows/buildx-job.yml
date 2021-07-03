@@ -25,8 +25,8 @@ jobs:
         run: |
           docker buildx build --platform linux/amd64,linux/arm/v7 docker-speedtest
       
-      # - name: Build the image and copy to Dockerhub
-      #   run: |
-      #     docker buildx build --push \
-      #       --tag johannesanchez/speedtest-exporter:latest \
-      #       --platform linux/amd64,linux/arm/v7 .
+      - name: Build the image and copy to Dockerhub
+        run: |
+          docker buildx build --push \
+            --tag johannesanchez/speedtest-exporter:latest \
+            --platform linux/amd64,linux/arm/v7 .
