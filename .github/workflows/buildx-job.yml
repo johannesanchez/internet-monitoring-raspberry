@@ -3,8 +3,9 @@ on:
   push:
     branches:
     - master
-  # pull_request:
-  #   branches: master
+  pull_request:
+    branches:
+    - master
 
 jobs:
   build:
@@ -22,7 +23,7 @@ jobs:
       
       - name: Test Build a dummy image
         run: |
-          docker buildx build --platform linux/arm/v7
+          docker buildx build --platform linux/arm/v7 .
       
       # - name: Build the image
       #   run: |
