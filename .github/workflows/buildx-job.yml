@@ -23,7 +23,7 @@ jobs:
       
       - name: Test Build a dummy image
         run: |
-          docker buildx build --platform linux/arm/v7 .
+          docker buildx build --platform linux/amd64,linux/arm/v7 docker-speedtest
       
       # - name: Build the image
       #   run: |
