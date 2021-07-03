@@ -1,6 +1,8 @@
 FROM stefanwalther/speedtest-exporter
+ARG TARGETPLATFORM
 ARG TARGETARCH
-RUN echo "I am building for $TARGETARCH"
+RUN echo "Target Platform ::: $TARGETPLATFORM"
+RUN echo "Target Arch ::: $TARGETARCH"
 
 # ARG OVERLAY_ARCH="amd64"
 
