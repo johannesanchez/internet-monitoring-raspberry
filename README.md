@@ -64,3 +64,5 @@ Thanks to @vegasbrianc work on making a [super easy docker](https://github.com/v
 
 I also want to disclaim that Prometheus aren't really (currently) intended for this kind of blackbox/external monitoring and this setup is not in anyway secured. Thus only use this for inspiration and do not blame me if someone hacks this and figure out what your real internet sped is :)
 
+
+Debuggig the JOB - Foricing the push job from master checkout
