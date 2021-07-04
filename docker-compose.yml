@@ -11,6 +11,7 @@ networks:
 services:
   prometheus:
     image: prom/prometheus:v2.0.0
+    container_name: prom
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
@@ -29,6 +30,7 @@ services:
 
   grafana:
     image: grafana/grafana
+    container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
@@ -50,6 +52,7 @@ services:
     ports:
       - 9115:9115
     image: prom/blackbox-exporter
+    container_name: ping
     volumes:
       - ./blackbox/config:/config
     command:
@@ -64,7 +67,9 @@ services:
       - 9696
     ports:
       - 9696:9696
-    image: stefanwalther/speedtest-exporter
+    # image: stefanwalther/speedtest-exporter
+    image: johannesanchez/speedtest-exporter
+    container_name: speedtest
     restart: always
     networks:
       - back-tier
@@ -77,6 +82,7 @@ services:
     ports:
       - 1915:1915
     image: maxandersen/sonos_exporter
+    container_name: sonos
     command:
       - '--address=0.0.0.0:1915'
     network_mode: host
@@ -84,6 +90,7 @@ services:
   nodeexp:
     privileged: true
     image: prom/node-exporter
+    container_name: nodeexp
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro

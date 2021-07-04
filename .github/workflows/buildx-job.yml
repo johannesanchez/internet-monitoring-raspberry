@@ -1,10 +1,11 @@
 name: Workflow to buildx speedtest-image
-
 on:
   push:
-    branches: master
+    branches:
+    - master
   pull_request:
-    branches: master
+    branches:
+    - master
 
 jobs:
   build:
@@ -22,10 +23,10 @@ jobs:
       
       - name: Test Build a dummy image
         run: |
-          docker buildx build --platform linux/arm/v7
+          docker buildx build --platform linux/amd64,linux/arm/v7 docker-speedtest
       
-      # - name: Build the image
-      #   run: |
-      #     docker buildx build --push \
-      #       --tag nombre-usuario/nombre-paquete:latest \
-      #       --platform linux/amd64,linux/arm/v7 .
+      - name: Build the image and copy to Dockerhub
+        run: |
+          docker buildx build --push \
+            --tag johannesanchez/speedtest-exporter:latest \
+            --platform linux/amd64,linux/arm/v7 .
