@@ -64,11 +64,12 @@ services:
     tty: true
     stdin_open: true
     expose:
-      - 9696
+      - 9798
     ports:
-      - 9696:9696
+      - 9798:9798
     # image: stefanwalther/speedtest-exporter
-    image: johannesanchez/speedtest-exporter
+    # image: johannesanchez/speedtest-exporter
+    image: miguelndecarvalho/speedtest-exporter
     container_name: speedtest
     restart: always
     networks:
